@@ -21,3 +21,5 @@ labels = response.label_annotations
 
 print("Labels:")
 
+for label in labels:
+    print(label.description)
