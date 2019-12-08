@@ -8,7 +8,7 @@ client = vision.ImageAnnotatorClient()
 
 file_name = os.path.join(
     os.path.dirname(__file__),
-    'car.jpg')
+    'fish.jpg')
 
 with io.open(file_name,'rb') as image_file:
     content = image_file.read()
