@@ -17,3 +17,7 @@ image = types.Image(content=content)
 
 response = client.label_detection(image=image)
 
+labels = response.label_annotations
+
+print("Labels:")
+
