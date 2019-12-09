@@ -3,5 +3,5 @@ vision-key.json
 .venv/
 car.jpg
 fish.jpg
-templates/.upload.py.swp
+.upload.py.swp
 
