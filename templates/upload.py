@@ -16,3 +16,6 @@ def uploader():
         filename= secure_filename(f.filename)
         f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename)) 
         return "File upload complete"
+
+if __name__ == '__main__':
+    app.run(debug=True)
