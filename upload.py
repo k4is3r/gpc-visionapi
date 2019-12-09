@@ -7,9 +7,9 @@ app.config['UPLOAD_FOLDER'] ="./images"
 
 @app.route("/")
 def upload_file():
-    return render_template('formulario.html')
+    return render_template('./formulario.html')
 
-@app.route("/uploader", method=['POST'])
+@app.route("/uploader", methods=['POST'])
 def uploader():
     if request.method == 'POST':
         f = request.files['archivo']
