@@ -9,15 +9,17 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 def index():
     return render_template("formulario.html")
 
-@app.route("/upload")
+@app.route("/upload", methods=['POST'])
 def upload():
     target = os.path.join(APP_ROOT, 'images/')
     print(target)
     
     if not os.path.isdir(target):
         os.mkdir(target)
-
-    file_list = request.file.getlist("file")
+    else:
+        print("Couldn't create upload directory: {}".format(tarjet))
+     	
+    file_list = request.files.getlist("file")
     for file in file_list:
         print(file)
         filename = file.filename
@@ -26,3 +28,7 @@ def upload():
         file.save(destination)
     
     return render_template("complete.html")
+
+if __name__ == '__main__':
+    app.run(debug = True)
+    #port=4550
