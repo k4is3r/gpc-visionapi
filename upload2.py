@@ -22,3 +22,7 @@ def upload():
         print(file)
         filename = file.filename
         destination = "/".join([target, filename])
+        print(destination)
+        file.save(destination)
+    
+    return render_template("complete.html")
