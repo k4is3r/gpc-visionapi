@@ -8,3 +8,4 @@ fish.jpg
 .upload2.py.swp
 static/*
 images/*
+__pycache__/

@@ -3,23 +3,17 @@ import os
 from google.cloud import vision
 from google.cloud.vision import types
 
-#Visio client
-client = vision.ImageAnnotatorClient()
-
-file_name = os.path.join(
-    os.path.dirname(__file__),
-    'fish.jpg')
-
-with io.open(file_name,'rb') as image_file:
-    content = image_file.read()
-
-image = types.Image(content=content)
-
-response = client.label_detection(image=image)
-
-labels = response.label_annotations
-
-print("Labels:")
-
-for label in labels:
-    print(label.description)
+def analyze_photo(filename):
+    client = vision.ImageAnnotatorClient()
+    descriptions=[]
+    file_name = filename
+    
+    with io.open(file_name, 'rb') as image_file:
+        content = image_file.read()
+    
+    image = types.Image(content=content)
+    response = client.label_detection(image=image)
+    labels = response.label_annotations
+    print("Labels:")
+    descriptions = labels
+    return descriptions 
