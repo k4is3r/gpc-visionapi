@@ -5,9 +5,9 @@
     <title>Images Recognition AI</title>
 </head>
 <body>
-<form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/from-data">
-    <input type="file" name="archivo">
-    <input type="submit">
+<form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" accept="image/*" multiple>
+    <input type="submit" value="Cargar">
 </form>
 </body>
 </html>
