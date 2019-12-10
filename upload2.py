@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
 
 app = Flask(__name__)
 
@@ -17,7 +17,7 @@ def upload():
     if not os.path.isdir(target):
         os.mkdir(target)
     else:
-        print("Couldn't create upload directory: {}".format(tarjet))
+        print("Couldn't create upload directory: {}".format(target))
      	
     file_list = request.files.getlist("file")
     for file in file_list:
@@ -27,7 +27,14 @@ def upload():
         print(destination)
         file.save(destination)
     
-    return render_template("complete.html")
+    return render_template("complete.html", image_name=filename)
+
+
+@app.route('/upload/<filename>')
+def send_image(filename):
+    return send_from_directory("images", filename)
+
+
 
 if __name__ == '__main__':
     app.run(debug = True)

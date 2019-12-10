@@ -1,8 +1,10 @@
 vision-key.json
 .app.py.swp
+.complete.html.swp
 .venv/
 car.jpg
 fish.jpg
 .upload.py.swp
 .upload2.py.swp
+static/*
 images/*
