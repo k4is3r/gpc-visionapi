@@ -29,14 +29,14 @@ def upload():
         print(file)
         filename = file.filename
         destination = "/".join([target, filename])
-        print(destination)
         file.save(destination)
     print(filename)
     description_list = analyze_photo(destination)
-    for desc in description_list:
-        print(desc.description)
+    print(description_list[0])
+    #for desc in description_list:
+    #   print(desc.description)
      
-    return render_template("complete.html", image_name=filename)
+    return render_template("complete.html", image_name=filename, descriptions=description_list)
 
 
 @app.route('/upload/<filename>')

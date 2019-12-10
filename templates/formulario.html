@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Images Recognition AI</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block body %}
 <br>
 <h1>Upload your image</h1>
+<br>
 <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
-    <input type="file" name="file" accept="image/*" multiple>
-    <input type="submit" value="Cargar">
+    <div class="align-items-center">
+    <div class="form-group">
+      <label>Choose Your image</label>
+      <input type="file" name="file" accept="image/*" multiple class="form-control-file" >
+      <br>
+      <br>
+      <input type="submit" value="Cargar" class="btn btn-primary">
+    </div>
+  </div>
 </form>
-</body>
-</html>
+{% endblock %}

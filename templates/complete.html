@@ -1,12 +1,26 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Images Recognition AI</title>
-</head>
-<body>
-<h2>File Upload</h2>
-<img src="{{ url_for('send_image', filename= image_name ) }}">
-</form>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block body %}
+<h2>Your image was uploaded</h2>
+<br>
+<img src="{{ url_for('send_image', filename= image_name ) }}" class="img-fluid" alt="Responsive image" >
+<br>
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+       <th scope="col">#</th>
+       <th scope="col">Identification</th>
+       <th scope="col">Score</th>
+    </tr>
+  </thead>
+  <tbody>
+     {% for desc in descriptions %}
+     <tr>
+       <th scope="row">#</th>
+       <td>{{ desc.description }}</td>
+       <td>{{ desc.score }}</td>
+     </tr>
+     {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+
